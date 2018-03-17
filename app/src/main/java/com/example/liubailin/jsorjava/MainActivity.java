@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
        webView.loadUrl("file:///android_asset/button.html");
-       webView.addJavascriptInterface(this, "jswritecard");
+       webView.addJavascriptInterface(this, "JavaObj");
     }
 
 /**
@@ -41,51 +41,43 @@ public class MainActivity extends AppCompatActivity {
  * @android.webkit.JavascriptInterface 为了解
  * 决addJavascriptInterface漏洞的，在4.2以后才有的。
  */
-
     @android.webkit.JavascriptInterface
-    public void getICCID(){
-        //js 调用Java 方法  无参
-        Log.e(TAG, "js 调用 Java de getICCID！！");
-        //js若想更改Activity 需要使其运行在主线程
+    public void showDate(final String data){
+
+        Log.e(TAG, "js 调用 Java de showDate！！");
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-               // getCardICCID();
-            }
-        });
-
-    }
-    @android.webkit.JavascriptInterface
-
-    public void get2F99(){
-
-        Log.e(TAG, "js 调用 Java de get2F99！！");
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                getCard2F99();
+               textView.setText("来自js中的数据:"+data);
             }
         });
     }
     @android.webkit.JavascriptInterface
-    public void writeCard(final String indata){
-        //js调用Java有参
-        Log.e(TAG, "js 调用 Java de writeCard ,indata : "+indata);
+    public void showDate(){
+
+        Log.e(TAG, "js 调用 Java de showDate！！");
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                writeJavaCrad(indata);
+                textView.setText("来自js中的调用");
+            }
+        });
+    }
+    /*这个函数去调用javascript中函数*/
+    @android.webkit.JavascriptInterface
+    void callJs(){
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                webView.loadUrl("javascript:setDate('call from java')");
             }
         });
     }
 
-    private void getCard2F99() {
-        textView.setText("call getCard2F99:");
-    }
 
-    private void writeJavaCrad(String indata) {
-        textView.setText(" sent msg:"+indata);
+    @android.webkit.JavascriptInterface
+    String getDate(){
+       return "hello,javascript";
     }
-
 
 }
