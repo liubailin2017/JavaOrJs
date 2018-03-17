@@ -7,7 +7,7 @@ import android.util.Log;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.TextView;
-
+/*我也添加一个测试 */
 public class MainActivity extends AppCompatActivity {
     private static final String TAG ="javascript" ;
     private WebView webView = null;
