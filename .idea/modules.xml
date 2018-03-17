@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/JavaOrJs.iml" filepath="$PROJECT_DIR$/JavaOrJs.iml" />
+      <module fileurl="file://C:\Users\liubailin\AndroidStudioProjects\JsorJava\JavaOrJs.iml" filepath="C:\Users\liubailin\AndroidStudioProjects\JsorJava\JavaOrJs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JsorJava.iml" filepath="$PROJECT_DIR$/JsorJava.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
